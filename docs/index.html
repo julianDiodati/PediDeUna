@@ -1,1 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ed">
+  <meta name="description" content="Elegí tu casa de comidas favorita y encontrá algo rico para hoy.">
+  <title>Pedí de Una | Locales para elegir</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="restaurants-data.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Pedí de Una, inicio">
+      <img class="brand-logo" src="logos/pedi-de-una-logo-nav.png" alt="Pedí de Una">
+    </a>
+    <button class="location-button" id="locationButton" type="button" aria-label="Elegir zona de entrega">
+      <span class="location-icon" aria-hidden="true">⌖</span>
+      <span class="location-copy"><small>Tu zona de entrega</small><strong id="locationLabel">San Justo</strong></span>
+      <span aria-hidden="true">⌄</span>
+    </button>
+    <a class="header-link" href="#locales">Explorar locales</a>
+  </header>
 
+  <main id="inicio">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <span class="eyebrow"><span aria-hidden="true">✦</span> BUEN SABOR, CERCA TUYO</span>
+        <h1 id="heroTitle">¿Qué se te<br>antoja hoy?</h1>
+        <p>Encontrá tu próximo favorito entre los locales de tu zona.</p>
+        <label class="search-box" for="searchInput">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Buscá un local o tipo de comida" autocomplete="off">
+          <kbd>⌕</kbd>
+        </label>
+      </div>
+      <div class="hero-note"><span aria-hidden="true">🍔</span><div><strong>Algo rico te espera</strong><small>Elegí, explorá y disfrutá</small></div></div>
+    </section>
+
+    <section class="category-section" aria-label="Filtrar por categoría">
+      <div class="section-heading compact-heading"><div><span class="eyebrow">PARA CADA ANTOJO</span><h2>¿Qué tenés ganas de comer?</h2></div></div>
+      <div class="category-list" id="categoryList">
+        <button class="category-chip is-active" data-category="Todos" type="button" aria-pressed="true"><span>🍽️</span>Todos</button>
+        <button class="category-chip" data-category="Hamburguesas" type="button"><span>🍔</span>Hamburguesas</button>
+      </div>
+    </section>
+
+    <section class="restaurants-section" id="locales" aria-labelledby="restaurantsTitle">
+      <div class="section-heading">
+        <div><span class="eyebrow">DESCUBRÍ TU PRÓXIMO FAVORITO</span><h2 id="restaurantsTitle">Nuestro local</h2></div>
+        <span class="result-count" id="resultCount" aria-live="polite"></span>
+      </div>
+      <div class="restaurant-grid" id="restaurantGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No encontramos locales con esa búsqueda. Probá con otra palabra o categoría.</p>
+    </section>
+    <section class="bottom-banner"><span aria-hidden="true">🥡</span><div><strong>Tu próximo antojo está más cerca.</strong><p>Explorá los comercios disponibles y elegí algo rico.</p></div><a href="#locales">Ver locales <b aria-hidden="true">→</b></a></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#inicio" aria-label="Pedí de Una, inicio"><img class="brand-logo" src="logos/pedi-de-una-logo-nav.png" alt="Pedí de Una"></a><span>Buenos sabores, buenos momentos.</span><span>© 2026 Pedí de Una</span></footer>
+  <dialog class="location-dialog" id="locationDialog" aria-labelledby="locationTitle">
+    <form method="dialog" id="locationForm"><button class="dialog-close" aria-label="Cerrar" value="cancel">×</button><span class="eyebrow">ENTREGA</span><h2 id="locationTitle">¿En qué zona estás?</h2><p>Elegí una localidad para explorar los comercios cercanos.</p><label for="locationInput">Localidad</label><input id="locationInput" maxlength="48" placeholder="Ej.: San Justo" value="San Justo" required><button class="primary-button" value="confirm">Guardar ubicación</button></form>
+  </dialog>
+</body>
+</html>
